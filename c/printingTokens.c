@@ -1,0 +1,35 @@
+#include <stdio.h> // isso é uma diretiva de pré-processador. A palavra #include instrui o compilador a incluir o conteúdo de 
+// um arquivo de cabeçalho (header file) em nosso programa. Neste caso, estamos incluindo o arquivo stdio.h (Standard Input/Output), 
+// que contém as funções para operações de entrada e saída de dados, como a função printf().
+#include <stdbool.h> // Necessário para usar 'bool', 'true' e 'false'
+#include <string.h> // necessário para usar strcpy, função de passar strings para arrays de char.
+#include <stdlib.h> // necessário para tratar ponteiros com funções malloc, free, calloc, realloc, etc.
+
+void printSplitBySpace(char *p) {
+    char *temp = p;
+    while (*temp != '\0') {
+        if (*temp == ' ') { // " " em c são strings (arrays de chars com \0 no fim, seria algo como 
+            //{' ', '\0'} e retornam um ponteiro para {}[0], ou seja a comparação não funciona, é necessário
+            // usar ' ')
+            printf("\n");
+        } else {
+            printf("%c", *temp);
+        };
+        temp ++;
+    };
+};
+
+// int -> o tipo do retorno da função
+// int argc -> int que representa a qtd de argumentos passados ao rodar o código, ex no terminal roda: test.exe "OI" "eu", resultado será 2
+// char *argv[] -> array contendo os argumentos, argv[0] sempre será o nome do programa, ex: argv[0] = test, argv[1] = OI, argv[2] = eu
+int main(int argc, char *argv[]) {
+	
+    char *s;
+    s = malloc(1024 * sizeof(char));
+    scanf("%[^\n]", s);
+    s = realloc(s, strlen(s) + 1);
+    //Write your logic to print the tokens of the sentence here.
+    printSplitBySpace(s);
+    return 0;
+
+}
