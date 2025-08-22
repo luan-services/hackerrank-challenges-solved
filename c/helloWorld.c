@@ -11,7 +11,7 @@
 int main(int argc, char *argv[]) {
 	
     char s[100];
-    scanf("%[^\n]%*c", &s);
+    scanf("%[^\n]%*c", s);
   	
     /*code*/
     printf("Hello, World!\n");

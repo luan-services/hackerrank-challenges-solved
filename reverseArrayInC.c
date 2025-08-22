@@ -22,5 +22,7 @@ int main(int argc, char *argv[]) {
     for(i = 0; i < num; i++) {
         printf("%d ", *(arr + num - 1 - i));
     };
+
+    free(arr);
     return 0;
 }
